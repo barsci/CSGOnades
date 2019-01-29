@@ -1,40 +1,43 @@
 package com.example.restapp.mapper;
 
-import com.example.restapp.db.maps.Battleground;
-import com.example.restapp.db.maps.MapDto;
-import org.springframework.stereotype.Component;
+import com.example.restapp.db.battelground.Battleground;
+import com.example.restapp.db.battelground.BattlegroundDto;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
 public class MapMapper {
 
-    public static MapDto mapMirageToMirageDto(Battleground mirage){
-        return new MapDto(mirage.getId(),
-                mirage.getMapList(),
-                mirage.getCtOrT(),
-                mirage.getSgDestination(),
+    private MapMapper() {
+        throw new UnsupportedOperationException();
+    }
+
+
+    public static BattlegroundDto mapMirageToMirageDto(Battleground mirage) {
+        return new BattlegroundDto(mirage.getId(),
+                mirage.getListOfAvailableMaps(),
+                mirage.getCounterTerroristOrTerrorist(),
+                mirage.getGrenadeDestination(),
                 mirage.getDescription(),
                 mirage.getPicture());
     }
 
-    public static Battleground mapMirageDtoToMirage(MapDto mirageDto){
+    public static Battleground mapMirageDtoToMirage(BattlegroundDto mirageDto) {
         return Battleground.builder().
-                ctOrT(mirageDto.getCtOrT()).
-                sgDestination(mirageDto.getSgDestination()).
+                counterTerroristOrTerrorist(mirageDto.getCtOrT()).
+                grenadeDestination(mirageDto.getGrenadeDestination()).
                 description(mirageDto.getDescription()).
-                mapList(mirageDto.getMapList()).
+                listOfAvailableMaps(mirageDto.getListOfAvailableMaps()).
                 picture(mirageDto.getPicture()).
                 build();
     }
 
-    public static List<MapDto> mapToMirageDtoList(List<Battleground> list){
+    public static List<BattlegroundDto> mapToMirageDtoList(List<Battleground> list) {
         return list.stream().
-                map(m -> new MapDto(m.getId(),
-                        m.getMapList(),
-                        m.getCtOrT(),
-                        m.getSgDestination(),
+                map(m -> new BattlegroundDto(m.getId(),
+                        m.getListOfAvailableMaps(),
+                        m.getCounterTerroristOrTerrorist(),
+                        m.getGrenadeDestination(),
                         m.getDescription(),
                         m.getPicture())).
                 collect(Collectors.toList());

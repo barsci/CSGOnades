@@ -1,7 +1,7 @@
 package com.example.restapp.service;
 
-import com.example.restapp.db.maps.Battleground;
-import com.example.restapp.db.maps.mapdao.MapDao;
+import com.example.restapp.db.battelground.Battleground;
+import com.example.restapp.db.battelground.battlegroundao.BattlegroundDao;
 import com.example.restapp.db.pictures.Pictures;
 import com.example.restapp.db.pictures.picturesdao.PicturesDao;
 import org.springframework.stereotype.Service;
@@ -13,31 +13,31 @@ import java.util.Optional;
 public class DBService {
 
 
-    private MapDao mapDao;
+    private BattlegroundDao battlegroundDao;
     private PicturesDao picturesDao;
 
-    public DBService(MapDao mapDao, PicturesDao picturesDao) {
-        this.mapDao = mapDao;
+    public DBService(BattlegroundDao battlegroundDao, PicturesDao picturesDao) {
+        this.battlegroundDao = battlegroundDao;
         this.picturesDao = picturesDao;
     }
 
     public List<Battleground> getAllMirageSmokes() {
-        return mapDao.findAll();
+        return battlegroundDao.findAll();
     }
 
     public Optional<Battleground> getMirageSmokeById(final Integer id) {
-        return mapDao.findById(id);
+        return battlegroundDao.findById(id);
     }
 
     public Battleground saveSmoke(Battleground mirage) {
-        return mapDao.save(mirage);
+        return battlegroundDao.save(mirage);
     }
 
     public Pictures savePictures(Pictures pic) {
         return picturesDao.save(pic);
     }
 
-    /*public Optional<Battleground> getMirageSmokeByCTorT(CTorT cTorT) {
+    /*public Optional<Battleground> getMirageSmokeByCTorT(CounterTerroristOrTerrorist cTorT) {
         return mapDao.findByCtOrT(cTorT);
     }*/
 }

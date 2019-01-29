@@ -1,6 +1,6 @@
 package com.example.restapp.db;
 
-public enum MapList {
+public enum ListOfAvailableMaps {
     MIRAGE,
     CACHE,
     DUST2,

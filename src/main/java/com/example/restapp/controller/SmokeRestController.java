@@ -1,7 +1,7 @@
 package com.example.restapp.controller;
 
-import com.example.restapp.db.maps.Battleground;
-import com.example.restapp.db.maps.MapDto;
+import com.example.restapp.db.battelground.Battleground;
+import com.example.restapp.db.battelground.BattlegroundDto;
 import com.example.restapp.mapper.MapMapper;
 import com.example.restapp.service.DBService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,12 +19,12 @@ public class SmokeRestController {
     DBService dbService;
 
     @RequestMapping(method = RequestMethod.GET, value = "getSmokes")
-    public List<MapDto> getAllMirageSmokes(){
+    public List<BattlegroundDto> getAllMirageSmokes(){
         return MapMapper.mapToMirageDtoList(dbService.getAllMirageSmokes());
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "getSmokeById")
-    public MapDto getMirageSmoke(@RequestParam Integer mirageId) throws MapNotFoundException {
+    public BattlegroundDto getMirageSmoke(@RequestParam Integer mirageId) throws MapNotFoundException {
         System.out.println("cosaaaa");
         return MapMapper.mapMirageToMirageDto(dbService.getMirageSmokeById(mirageId).orElseThrow(MapNotFoundException::new));
     }
@@ -34,13 +34,13 @@ public class SmokeRestController {
     }
 
    /* @RequestMapping(method = RequestMethod.PUT, value = "updateMirageSmoke")
-    public MapDto updateTask(MapDto task){
-        return new MapDto(2L,"title2","content2");
+    public BattlegroundDto updateTask(BattlegroundDto task){
+        return new BattlegroundDto(2L,"title2","content2");
     }*/
 
     @RequestMapping(method = RequestMethod.POST, value = "createSmokeEntry", consumes = APPLICATION_JSON_VALUE)
-    public void createSmoke(@RequestBody MapDto mapDto) {
-        Battleground battleground = MapMapper.mapMirageDtoToMirage(mapDto);
+    public void createSmoke(@RequestBody BattlegroundDto battlegroundDto) {
+        Battleground battleground = MapMapper.mapMirageDtoToMirage(battlegroundDto);
         dbService.saveSmoke(battleground);
         //System.out.println(battleground.getPicture().get(0));
     }
