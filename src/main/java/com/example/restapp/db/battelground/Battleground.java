@@ -3,11 +3,9 @@ package com.example.restapp.db.battelground;
 import com.example.restapp.db.CounterTerroristOrTerrorist;
 import com.example.restapp.db.ListOfAvailableMaps;
 import com.example.restapp.db.GrenadeDestination;
-import com.example.restapp.db.pictures.Pictures;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "Battleground")
@@ -23,7 +21,7 @@ public class Battleground {
     @Column(name = "id")
     private Long id;
 
-    @Column(name ="battelground")
+    @Column(name ="battleground")
     @Enumerated(EnumType.STRING)
     private ListOfAvailableMaps listOfAvailableMaps;
 
@@ -38,5 +36,15 @@ public class Battleground {
     @Column(name = "description")
     private String description;
 
-    List<Pictures> picture;
+    @Column(name = "picture1")
+    private String picture1;
+
+    @Column(name = "picture2")
+    private String picture2;
+
+    @Column(name = "picture3")
+    private String picture3;
+
+    @Column(name = "picture4")
+    private String picture4;
 }

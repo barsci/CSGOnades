@@ -19,8 +19,11 @@ import java.util.List;
 public class BattlegroundDto {
     private Long id;
     private ListOfAvailableMaps listOfAvailableMaps;
-    private CounterTerroristOrTerrorist ctOrT;
+    private CounterTerroristOrTerrorist counterTerroristOrTerrorist;
     private GrenadeDestination grenadeDestination;
     private String description;
-    private List<Pictures> picture;
+    private String picture1;
+    private String picture2;
+    private String picture3;
+    private String picture4;
 }
