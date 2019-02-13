@@ -1,6 +1,6 @@
 package com.example.restapp.db;
 
-public enum CounterTerroristOrTerrorist {
+public enum PlayingSide {
     CT,
     T;
 }

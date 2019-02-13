@@ -16,7 +16,7 @@ public class BattlegroundMapper {
     public static BattlegroundDto mapToBattlegroundDto(Battleground bg) {
         return new BattlegroundDto(bg.getId(),
                 bg.getListOfAvailableMaps(),
-                bg.getCounterTerroristOrTerrorist(),
+                bg.getPlayingSide(),
                 bg.getGrenadeDestination(),
                 bg.getDescription(),
                 bg.getPicture1(),
@@ -27,7 +27,7 @@ public class BattlegroundMapper {
 
     public static Battleground mapToBattleground(BattlegroundDto bg) {
         return Battleground.builder().
-                counterTerroristOrTerrorist(bg.getCounterTerroristOrTerrorist()).
+                playingSide(bg.getPlayingSide()).
                 grenadeDestination(bg.getGrenadeDestination()).
                 description(bg.getDescription()).
                 listOfAvailableMaps(bg.getListOfAvailableMaps()).
@@ -42,7 +42,7 @@ public class BattlegroundMapper {
         return list.stream().
                 map(m -> new BattlegroundDto(m.getId(),
                         m.getListOfAvailableMaps(),
-                        m.getCounterTerroristOrTerrorist(),
+                        m.getPlayingSide(),
                         m.getGrenadeDestination(),
                         m.getDescription(),
                         m.getPicture1(),

@@ -1,6 +1,8 @@
 package com.example.restapp.service;
 
 import com.example.restapp.controller.BattlegroundNotFoundException;
+import com.example.restapp.db.PlayingSide;
+import com.example.restapp.db.ListOfAvailableMaps;
 import com.example.restapp.db.battelground.Battleground;
 import com.example.restapp.db.battelground.BattlegroundDto;
 import com.example.restapp.db.battelground.battlegroundao.BattlegroundDao;
@@ -31,7 +33,10 @@ public class BattlegroundService {
         return battlegroundDao.save(BattlegroundMapper.mapToBattleground(battleground));
     }
 
-    /*public Optional<Battleground> getMirageSmokeByCTorT(CounterTerroristOrTerrorist cTorT) {
+    public List<BattlegroundDto> getAllMapAndSideSelectedSmokes(PlayingSide ctOrT, ListOfAvailableMaps csMap){
+        return BattlegroundMapper.mapToBattlegroundDtoList(battlegroundDao.findByPlayingSideAndListOfAvailableMaps(ctOrT,csMap));
+    }
+    /*public Optional<Battleground> getMirageSmokeByCTorT(PlayingSide cTorT) {
         return mapDao.findByCtOrT(cTorT);
     }*/
 }
