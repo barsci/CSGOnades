@@ -18,7 +18,7 @@ public class DbTest {
     public void testAddingToDB(){
 
  /*       //Given
-        Battleground battelground = Battleground.builder().ctOrT(CounterTerroristOrTerrorist.CT).grenadeDestination(GrenadeDestination.A).description("jungle from hagrid").picture("asd.jpg").build();
+        Battleground battelground = Battleground.builder().ctOrT(PlayingSide.CT).grenadeDestination(GrenadeDestination.A).description("jungle from hagrid").picture("asd.jpg").build();
 
         //When
         mirageDao.save(battelground);

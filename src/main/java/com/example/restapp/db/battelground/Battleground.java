@@ -1,6 +1,6 @@
 package com.example.restapp.db.battelground;
 
-import com.example.restapp.db.CounterTerroristOrTerrorist;
+import com.example.restapp.db.PlayingSide;
 import com.example.restapp.db.ListOfAvailableMaps;
 import com.example.restapp.db.GrenadeDestination;
 import lombok.*;
@@ -25,9 +25,9 @@ public class Battleground {
     @Enumerated(EnumType.STRING)
     private ListOfAvailableMaps listOfAvailableMaps;
 
-    @Column(name = "CounterTerroristOrTerrorist")
+    @Column(name = "PlayingSide")
     @Enumerated(EnumType.STRING)
-    private CounterTerroristOrTerrorist counterTerroristOrTerrorist;
+    private PlayingSide playingSide;
 
     @Column(name = "grenadeDestination")
     @Enumerated(EnumType.STRING)
